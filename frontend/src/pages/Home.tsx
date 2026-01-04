@@ -25,7 +25,7 @@ const Home = () => {
 
       <div className="todo-list">
         {todos.slice(0, 4).map(todo => (
-          <TodoCard key={todo.id} todo={todo} />
+          <TodoCard key={todo.id} todo={todo} home={true}/>
         ))}
       </div>
 

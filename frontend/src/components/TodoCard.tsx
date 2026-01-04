@@ -2,15 +2,15 @@ import { useNavigate } from "react-router-dom";
 import type { Todo } from "../types/Todo";
 import "./TodoCard.css";
 
-type Props = {
-  todo: Todo;
-};
+// type Props = {
+//   todo: Todo;
+// };
 
-const TodoCard = ({ todo }: Props) => {
+const TodoCard = ({ todo, home }: {todo: Todo;home: boolean}) => {
   const navigate = useNavigate();
 
   return (
-    <div className="todo-card">
+    <div className={home?"todo-card":"todo-card-two"}>
       <div className={`status ${todo.completed ? "done" : ""}`}>
         ✓
       </div>
