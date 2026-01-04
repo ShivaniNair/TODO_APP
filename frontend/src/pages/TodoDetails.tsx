@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../services/api";
-import type { Todo } from "../types/Todo";
+//import type { Todo } from "../types/Todo";
 import "./TodoDetails.css";
 
 const TodoDetails = () => {
