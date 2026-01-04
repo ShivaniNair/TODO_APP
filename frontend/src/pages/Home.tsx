@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
-import type { Todo } from "../types/Todo";
 import TodoCard from "../components/TodoCard";
 import "./Home.css";
+import type { Todo } from "../types/Todo";
 
 const Home = () => {
   const [todos, setTodos] = useState<Todo[]>([]);

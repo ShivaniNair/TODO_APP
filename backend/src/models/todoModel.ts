@@ -4,7 +4,7 @@ import { Todo } from "../types/todo";
 /**
  * GET ALL TODOS
  */
-export const getTodos = async (): Promise<Todo[]> => {
+export const getTodos = async () => {
   const [rows] = await db.query(
     "SELECT id, title, description, completed, created_at, updated_at FROM todos ORDER BY id DESC"
   );
@@ -15,7 +15,7 @@ export const getTodos = async (): Promise<Todo[]> => {
 /**
  * GET TODO BY ID
  */
-export const getTodoById = async (id: number): Promise<Todo | null> => {
+export const getTodoById = async (id: number)=> {
   const [rows] = await db.query(
     "SELECT id, title, description, completed, created_at, updated_at FROM todos WHERE id = ?",
     [id]
@@ -35,7 +35,7 @@ export const getTodoById = async (id: number): Promise<Todo | null> => {
 export const createTodo = async (
   title: string,
   description: string
-): Promise<Todo> => {
+)=> {
   const [result] = await db.query<any>(
     "INSERT INTO todos (title, description) VALUES (?, ?)",
     [title, description]
@@ -56,7 +56,7 @@ export const createTodo = async (
 export const updateTodo = async (
   id: number,
   data: Partial<Todo>
-): Promise<boolean> => {
+) => {
   const fields: string[] = [];
   const values: any[] = [];
 
@@ -75,7 +75,6 @@ export const updateTodo = async (
     values.push(data.completed);
   }
 
-  // ❗ Nothing to update
   if (fields.length === 0) {
     return false;
   }
@@ -93,7 +92,7 @@ export const updateTodo = async (
 /**
  * DELETE TODO
  */
-export const deleteTodo = async (id: number): Promise<boolean> => {
+export const deleteTodo = async (id: number) => {
   const [result] = await db.query<any>(
     "DELETE FROM todos WHERE id = ?",
     [id]

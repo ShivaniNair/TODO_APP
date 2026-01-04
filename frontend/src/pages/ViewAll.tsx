@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import type { Todo } from "../types/Todo";
 import TodoCard from "../components/TodoCard";
@@ -6,6 +7,8 @@ import "./ViewAll.css";
 
 const ViewAll = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     api.get("/todos").then(res => setTodos(res.data));
@@ -22,6 +25,10 @@ const ViewAll = () => {
           <TodoCard key={todo.id} todo={todo} />
         ))}
       </div>
+<p className="back-link" onClick={() => navigate("/")}>
+  ← Back
+</p>
+
     </div>
   );
 };

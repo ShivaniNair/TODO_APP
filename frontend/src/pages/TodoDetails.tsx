@@ -26,13 +26,21 @@ const TodoDetails = () => {
       description,
       completed,
     });
-    navigate("/");
+    alert("Successfully updated");
+    //  navigate("/");
   };
 
   const handleDelete = async () => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this task?"
+    );
+
+    if (!confirmDelete) return;
+
     await api.delete(`/todos/${id}`);
     navigate("/");
   };
+
 
   return (
     <div className="page">
@@ -42,11 +50,14 @@ const TodoDetails = () => {
 
       <div className="form-row">
         {/* FINISH BUTTON */}
+
         <div
           className={`finish-btn ${completed ? "done" : ""}`}
-          onClick={() => setCompleted(!completed)}
+          onClick={() => {
+            setCompleted(!completed)
+          }}
         >
-  
+
           <span>FINISH</span>
         </div>
 
