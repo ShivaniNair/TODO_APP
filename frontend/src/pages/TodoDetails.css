@@ -1,0 +1,79 @@
+.form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.update-btn {
+  background: #2f80ed;
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.delete-btn {
+  background: #eb5757;
+  color: #fff;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.back-btn {
+  margin-top: 20px;
+  background: none;
+  color: #fff;
+}
+.form-row {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.finish-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.finish-btn::before {
+  content: "✓";
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: 10px;
+  background: #fff;
+  color: #000;
+}
+
+.finish-btn span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.finish-btn.done::before {
+  border-color: #27ae60;
+  color: #27ae60;
+}
